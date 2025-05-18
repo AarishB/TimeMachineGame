@@ -1,52 +1,38 @@
-import java.util.HashMap;
+import java.awt.Image;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 public class Boss{
     private String name;
     private int health;
     private int maxHealth;
-    private Map<String, String> factQuestions;
+    private Image bossSprite;
+    private List<Image> questionImages;
     private boolean isDefeated;
 
-    public Boss(String name, int maxHealth){
+    public Boss(String name, int maxHealth, Image bossSprite){
         this.name = name;
         this.maxHealth = maxHealth;
         this.health = maxHealth;
-        this.factQuestions = new HashMap<>();
+        this.bossSprite = bossSprite;
+        this.questionImages = new ArrayList<>();
         this.isDefeated = false;
     }
 
-    public void addQuestion(String question, String correctAnswer){
-        factQuestions.put(question, correctAnswer);
+    public void addQuestionImage(Image questionImage){
+        questionImages.add(questionImage);
     }
 
-    public boolean askQuestion(){
-        if(factQuestions.isEmpty()){
+    public Image askQuestion(){
+        if(questionImages.isEmpty()){
             System.out.println("Boss has no questions set.");
-            return false;
+            return null;
         }
 
-        List<String> questions = factQuestions.keySet().stream().toList();
         Random random = new Random();
-        String question = questions.get(random.nextInt(questions.size()));
-        String correctAnswer = factQuestions.get(question);
-
-        System.out.println("BOSS QUESTION: " + question);
-        System.out.println("Enter your answer: ");
-
-        String playerAnswer = "dummy";
-
-        if(playerAnswer.equalsIgnoreCase(correctAnswer)){
-            System.out.println("Correct! You damaged the boss.");
-            takeDamage(20);
-            return true;
-        }
-        else{
-            System.out.println("Wrong! The boss counterattacks.");
-            return false;
-        }
+        Image questionImage = questionImages.get(random.nextInt(questionImages.size()));
+        return questionImage;
     }
 
     public void takeDamage(int damage){
@@ -81,6 +67,14 @@ public class Boss{
 
     public String getName(){
         return name;
+    }
+
+    public Image getBossSprite(){
+        return bossSprite;
+    }
+
+    public List<Image> getAllQuestionImages(){
+        return questionImages;
     }
 
     @Override

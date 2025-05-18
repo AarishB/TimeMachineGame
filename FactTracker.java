@@ -36,7 +36,7 @@ public class FactTracker {
         System.out.println("Fact tracker reset.");
     }
 
-    public Set<String> getAllFacts(){
+    public Set<Image> getAllFacts(){
         return collectedFacts;
     }
 

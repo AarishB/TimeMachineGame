@@ -36,13 +36,13 @@ public class Player{
     }
 
     public void collectFact(Image factImage){
-        if(!collectedFacts.contains(fact)){
+        if(!collectedFacts.contains(factImage)){
             collectedFacts.add(factImage);
             System.out.println("Collected fact: " + factImage);
         }
     }
 
-    public boolean hasFact(String factImage){
+    public boolean hasFact(Image factImage){
         return collectedFacts.contains(factImage);
     }
 

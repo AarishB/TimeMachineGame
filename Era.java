@@ -1,3 +1,4 @@
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +17,15 @@ public class Era{
         this.isCompleted = false;
     }
 
-    public void addFact(String fact){
+    public void addFact(Image fact){
         facts.add(fact);
     }
 
-    public String getRandomFact(){
-        if(facts.isEmpty())
-            return "No facts available.";
+    public Image getRandomFact(){
+        if(facts.isEmpty()) {
+            System.out.println("You collected 0 facts");
+            return null;
+        }
         int index = (int)(Math.random() * facts.size());
         return facts.get(index);
     }
@@ -46,10 +49,19 @@ public class Era{
     public String getDescription(){
         return description;
     }
+    public List<Image> getAllFacts() {
+        return facts;
+    }
 
+    public void clearFacts() {
+        facts.clear();
+        System.out.println("All facts cleared");
+    }
     @Override
     public String toString(){
         return name + ": " + description;
     }
-
+    public void addMinigame(Minigame minigame) {
+        minigames.add(minigame);
+    }
 }
