@@ -1,5 +1,4 @@
 import java.awt.*;
-import javax.swing.ImageIcon;
 public class Button extends GameObject {
     public Color color;
     public int width;
@@ -15,9 +14,7 @@ public class Button extends GameObject {
         color = c;
         this.targetScreen = targetScreen;
     }
-    public Button(ImageIcon icon, int x, int y, int w, int h, int targetScreen) {
-
-    }
+    
 
     @Override
     public void draw(Graphics g, int px, int py) {

@@ -53,7 +53,7 @@ public class FossilFinder extends Minigame{
             digs++;
             button.setEnabled(false);
             if(digs >= REQUIRED_DIGS){
-                JOptionPane.showMessageDialog(frame, "YOu ran out of digs! Try again.");
+                JOptionPane.showMessageDialog(frame, "You ran out of digs! Try again.");
                 frame.dispose();
             }
         }

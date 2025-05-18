@@ -37,6 +37,7 @@ public class TimeMachineGame extends JPanel {
         screens.add(new EraScreen());
         screens.add(new JurassicScreen());
         screens.add(new RobotEra());
+        screens.add(new BossScreen());
         screens.add(new TestScreen());
         activeScreen = 0;
         changeScreen(activeScreen);

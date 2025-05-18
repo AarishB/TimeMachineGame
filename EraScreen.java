@@ -13,7 +13,8 @@ public class EraScreen extends Screen {
         objects.add(new ImageObject(new ImageIcon(img), 0, 0, WIDTH, HEIGHT));
         
        objects.add(new Button(Color.GREEN, 50, 50, 100, 100, 2));
-       objects.add(new Button(Color.red, 500, 500, 100, 100, 0));
+       objects.add(new Button(Color.GREEN, 200, 50, 100, 100, 3));
+       objects.add(new Button(Color.red, 0, 600, 100, 100, 0));
     }
 
     public void draw(Graphics g, int px, int py){
