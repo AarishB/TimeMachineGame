@@ -12,15 +12,19 @@ public abstract class Minigame {
         this.factReward = factReward;
         this.isCompleted = false;
     }
+
     public abstract void start();
+
     protected void complete() {
         isCompleted = true;
         JOptionPane.showMessageDialog(frame, "You compeleted" + name  + "!");
         frame.dispose();
     }
+
     public boolean isCompleted() {
         return isCompleted;
     }   
+    
     public String getName() {
         return name;
     }

@@ -31,8 +31,10 @@ public class JurassicScreen extends Screen {
                 }.start();
             }
         });
-        objects.add(new Button(Color.GREEN, 50, 50, 100, 100, 3)); 
-        objects.add(new Button(Color.red, 500, 500, 100, 100, 1));
+        objects.add(new ImageButton(
+            new ImageIcon(new ImageIcon("NextArrow.png").getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)),
+            700, 300, 100, 100, 3));
+        objects.add(backArrow);
        // objects.add(new Box(Color.BLUE, 100, 100, 100, 100));
     }
 

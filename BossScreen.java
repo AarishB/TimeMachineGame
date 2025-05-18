@@ -27,13 +27,24 @@ public class BossScreen extends Screen {
     private final BossFight fight;
     private final ImageObject readyPrompt;
     private int factsCollected = Integer.MAX_VALUE;
+    private static final int SPRITE_W = 200;
+    private static final int SPRITE_H = 200;
+    private static final int SPRITE_X = (W - SPRITE_W) /2;
+    private static final int SPRITE_TARGET_Y = (H - SPRITE_H) / 2;
+    private Image bossSpriteImg;
+    private Image backgroundImg;
+    private int bossSpriteY;
+    private int frameCounter = 0;
+
 
     public BossScreen() {
         super();
         bg = Color.DARK_GRAY;
-        ImageIcon raw = new ImageIcon("BossBackgroundScreen.png");
-        Image bgImg = raw.getImage().getScaledInstance(W, H, Image.SCALE_SMOOTH);
-        objects.add(new ImageObject(new ImageIcon(bgImg), 0, 0, W, H));
+        ImageIcon rawBG = new ImageIcon("BossBackgroundScreen.png");
+        backgroundImg = rawBG.getImage().getScaledInstance(W, H, Image.SCALE_SMOOTH);
+        ImageIcon rawBoss = new ImageIcon("BossSprite.png");
+        bossSpriteImg = rawBoss.getImage().getScaledInstance(SPRITE_W, SPRITE_H, Image.SCALE_SMOOTH);
+        bossSpriteY = -SPRITE_H;
 
         List<String> questions = Arrays.asList("dinoquestion1.png");
         List<List<String>> choices = Arrays
@@ -110,8 +121,16 @@ public class BossScreen extends Screen {
     public void draw(Graphics g, int px, int py) {
         if (!visible)
             return;
-        g.setColor(bg);
-        g.fillRect(0, 0, W, H);
+        g.drawImage(backgroundImg, 0, 0, null);
+
+        frameCounter++;
+        if(frameCounter > 60 && bossSpriteY < SPRITE_TARGET_Y) {
+            bossSpriteY +=4;
+            if(bossSpriteY > SPRITE_TARGET_Y) {
+                bossSpriteY = SPRITE_TARGET_Y;
+            }
+        }
+        g.drawImage(bossSpriteImg, SPRITE_X, bossSpriteY, null);
         for (GameObject obj : objects) {
             obj.draw(g, 0, 0);
         }

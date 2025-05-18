@@ -17,7 +17,7 @@ public class TimeMachineGame extends JPanel {
     static int activeScreen;
 
     static ArrayList<Screen> screens = new ArrayList<>();
-    ArrayList<Integer> keysPressed;
+    ArrayList<Integer> keysPressed = new ArrayList<>();
     Player player = new Player(0, 0, 5, null);
 
     public TimeMachineGame() {

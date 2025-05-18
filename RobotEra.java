@@ -11,8 +11,7 @@ public class RobotEra extends Screen {
         ImageIcon raw = new ImageIcon("RobotEraScreen.png");
         Image img = raw.getImage().getScaledInstance(WIDTH, HEIGHT, Image.SCALE_SMOOTH);
         objects.add(new ImageObject(new ImageIcon(img), 0, 0, WIDTH, HEIGHT));
-        objects.add(new Button(Color.red, 500, 500, 100, 100, 2));
-        objects.add(new Button(Color.GREEN, 50, 50, 100, 100, 4));
+        objects.add(backArrow);
        // objects.add(new Box(Color.BLUE, 100, 100, 100, 100));
     }
     public void draw(Graphics g, int px, int py){
