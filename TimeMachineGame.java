@@ -38,7 +38,6 @@ public class TimeMachineGame extends JPanel {
         screens.add(new JurassicScreen());
         screens.add(new RobotEra());
         screens.add(new BossScreen());
-        screens.add(new TestScreen());
         activeScreen = 0;
         changeScreen(activeScreen);
         System.out.println("Screens loaded: " + screens.size());  // should print 5
